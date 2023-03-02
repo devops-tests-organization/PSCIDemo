@@ -33,7 +33,7 @@ jobs:
       run: dotnet build --configuration Release
       
     - name: Publish
-      run: dotnet publish -c Release --property:PackageOutputPath='${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
+      run: dotnet publish -c Release -o '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp' -f=net6.0
       
     - name: Deploy
       uses: Azure/webapps-deploy@v2.2.6
